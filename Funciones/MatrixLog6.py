@@ -1,6 +1,6 @@
 #Inicializacion de librerias 
 import numpy as np 
-from Hechas.MatrixExp6 import *
+from MatrixExp6 import *
 from MatrixLog3 import *
 from VecToso3 import *
 from so3ToVec import so3ToVec
@@ -13,22 +13,25 @@ def G_1(w,theta):
     return g
 
 
-def MatrixLog6(S):
+def MatrixLog6(T):
     """Calculo de la matriz logaritmo de una matriz de transformacion homogenea
     RETURN: LIST"""
     #Obtencion de la matriz de rotacion de la matriz de transformacion
-    R = S[0:3,0:3]
-    p = S[0:3,3]
+    R = T[0:3,0:3]
+    p = T[0:3,3]
     
     #Obtencion del vector giro
     angulo,w = MatrixLog3(R)
     w = so3ToVec(w)
     v = np.dot(G_1(w,angulo), p) 
+    S = np.array([w[0],w[1],w[2],v[0],v[1],v[2]])
+    
     
     print(w)
     print(angulo)
     print(v)
     
+    return S,angulo
 
 
 

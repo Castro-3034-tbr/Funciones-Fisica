@@ -1,8 +1,8 @@
 #Inicializacion de librerias 
 import numpy as np 
 import math as m
-from MatrixExp3 import MatrixExp3
 from VecToso3 import *
+from MatrixExp3 import *
 
 def MatrixExp6(S,theta):
     """Calculo de la matriz exponencial de un vector giro en representacion matricial 
